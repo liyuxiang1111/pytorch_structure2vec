@@ -133,6 +133,12 @@ if __name__ == '__main__':
     # from util import resampling_idxes, load_raw_data
     from test_graph import batch_graph
 
+    dll_path = '%s/build/dll/libs2v.so' % os.path.dirname(os.path.realpath(__file__))
+    if os.path.exists(dll_path):
+        S2VLIB = _s2v_lib(sys.argv)
+    else:
+        S2VLIB = None
+        print("libs2v.so 文件不存在，确认文件是否已成功编译。")
     # raw_data_dict = load_raw_data()
     # test_data = MOLLIB.LoadMolGraph('test', raw_data_dict['test'])
 
