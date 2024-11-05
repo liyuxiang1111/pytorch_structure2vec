@@ -2,7 +2,7 @@ dir_guard = @mkdir -p $(@D)
 FIND := find
 CXX := g++
 
-CXXFLAGS += -Wall -O3 -std=c++11
+CXXFLAGS += -Wall -O3 -std=c++11 -m64
 LDFLAGS += -lm
 
 include_dirs = ./include
