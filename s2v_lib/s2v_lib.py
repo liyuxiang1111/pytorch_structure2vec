@@ -129,13 +129,13 @@ else:
     S2VLIB = None
 
 if __name__ == '__main__':
-    sys.path.append('%s/../harvard_cep' % os.path.dirname(os.path.realpath(__file__)))
-    from util import resampling_idxes, load_raw_data
-    from mol_lib import MOLLIB, MolGraph
+    # sys.path.append('%s/../harvard_cep' % os.path.dirname(os.path.realpath(__file__)))
+    # from util import resampling_idxes, load_raw_data
+    from test_graph import batch_graph
 
-    raw_data_dict = load_raw_data()
-    test_data = MOLLIB.LoadMolGraph('test', raw_data_dict['test'])
+    # raw_data_dict = load_raw_data()
+    # test_data = MOLLIB.LoadMolGraph('test', raw_data_dict['test'])
 
-    batch_graph = test_data[0:10]
+    # batch_graph = test_data[0:10]
 
     S2VLIB.PrepareLoopyBP(batch_graph)

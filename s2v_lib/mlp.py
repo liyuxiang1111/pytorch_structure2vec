@@ -14,6 +14,9 @@ from tqdm import tqdm
 
 from pytorch_util import weights_init, to_scalar
 
+'''
+用与做回归任务的感知机
+'''
 class MLPRegression(nn.Module):
     def __init__(self, input_size, hidden_size):
         super(MLPRegression, self).__init__()
@@ -37,6 +40,9 @@ class MLPRegression(nn.Module):
         else:
             return pred
 
+'''
+用与做分类任务的感知机
+'''
 class MLPClassifier(nn.Module):
     def __init__(self, input_size, hidden_size, num_class):
         super(MLPClassifier, self).__init__()
