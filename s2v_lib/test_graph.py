@@ -1,24 +1,14 @@
-class MolGraph:
-    def __init__(self, nodes, edges):
-        self.nodes = nodes  # 节点列表，包含每个节点的标签
-        self.edges = edges  # 边列表，包含 (节点1, 节点2) 的元组
+import torch
 
-    def __repr__(self):
-        return f"MolGraph(nodes={self.nodes}, edges={self.edges})"
+# 创建一个稀疏张量
+# 索引张量指定非零元素的位置
+indices = torch.tensor([[0, 1, 1], [2, 0, 2]])  # 2x3的索引表示张量的非零值位置 第一行是 行索引，第二行是 列索引
+# 值张量指定每个非零元素的值
+values = torch.tensor([3, 4, 5], dtype=torch.float32)
+# 指定稀疏张量的形状
+size = (2, 3)
 
+# 使用 indices 和 values 创建稀疏张量
+sparse_tensor = torch.sparse.FloatTensor(indices, values, torch.Size(size))
 
-# 创建简单的图数据
-def create_sample_batch_graph():
-    # 定义一些简单的图，每个图都有节点和边
-    graph1 = MolGraph(nodes=[0, 1, 2], edges=[(0, 1), (1, 2)])
-    graph2 = MolGraph(nodes=[0, 1, 2, 3], edges=[(0, 1), (1, 2), (2, 3)])
-    graph3 = MolGraph(nodes=[0, 1], edges=[(0, 1)])
-
-    # 将这些图放入 batch_graph 列表中
-    batch_graph = [graph1, graph2, graph3]
-    return batch_graph
-
-
-# 生成 batch_graph
-batch_graph = create_sample_batch_graph()
-print(batch_graph)
+print(sparse_tensor)

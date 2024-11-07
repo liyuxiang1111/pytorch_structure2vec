@@ -57,7 +57,7 @@ class _s2v_lib(object):
                                 len(graph_list), 
                                 ctypes.c_void_p(list_num_nodes.ctypes.data),
                                 ctypes.c_void_p(list_num_edges.ctypes.data),
-                                ctypes.cast(edgepair_list, ctypes.c_void_p),
+                                ctypes.cast(edgepair_list, ctypes.c_void_p), # 指针数组 edgepair_list 转换为通用指针 c_void_p 类型
                                 is_directed)
 
         return total_num_nodes, total_num_edges
@@ -95,7 +95,7 @@ class _s2v_lib(object):
                                 ctypes.cast(val_list, ctypes.c_void_p))
 
         # 将张量转为稀疏张量格式并返回
-        n2n_sp = torch.sparse.FloatTensor(n2n_idxes, n2n_vals, torch.Size([total_num_nodes, total_num_nodes]))
+        n2n_sp = torch.sparse.FloatTensor(n2n_idxes, n2n_vals, torch.Size([total_num_nodes, total_num_nodes])) # 它接受三个参数：索引、值和形状
         e2n_sp = torch.sparse.FloatTensor(e2n_idxes, e2n_vals, torch.Size([total_num_nodes, total_num_edges * 2]))
         subg_sp = torch.sparse.FloatTensor(subg_idxes, subg_vals, torch.Size([len(graph_list), total_num_nodes]))
         return n2n_sp, e2n_sp, subg_sp
