@@ -1,15 +1,16 @@
-### txt data format
+### txt 数据格式
 
-* 1st line: `N` number of graphs; then the following `N` blocks describe the graphs  
-* for each block of text:
-  - a line contains `n l`, where `n` is number of nodes in the current graph, and `l` is the graph label
-  - following `n` lines: 
-    - the `i`th line describes the information of `i`th node (0 based), which starts with `t m`, where `t` is the tag of current node, and `m` is the number of neighbors of current node;
-    - following `m` numbers indicate the neighbor indices (starting from 0). 
-    
-### mat data format
+- **第一行**：包含一个数字 `N`，表示图的数量；接下来的 `N` 个区块分别描述每个图。
+- **每个图的描述格式**：
+  - 第一行包含两个数字 `n` 和 `l`，其中 `n` 表示当前图的节点数量，`l` 表示图的标签。
+  - 接下来的 `n` 行分别描述每个节点的信息：
+    - 每行开头是两个数字 `t` 和 `m`，其中 `t` 是当前节点的标签，`m` 表示当前节点的邻居数量。
+    - 接下来有 `m` 个数字，表示该节点的邻居索引（索引从 0 开始）。
 
-It should be straightforward when you load it with Matlab.
+### mat 数据格式
+
+- 加载 `mat` 文件时，直接使用 Matlab 加载即可，操作非常简单。
+
 
 ### 数据介绍
 #### 图分类数据集介绍
